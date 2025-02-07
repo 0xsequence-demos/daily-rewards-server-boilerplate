@@ -1,0 +1,17 @@
+name = "daily-rewards-server-boilerplate"
+compatibility_flags = [ "nodejs_compat" ]
+compatibility_date = "2024-09-23"
+pages_build_output_dir = "./dist"
+
+[vars]
+project_access_key = "project_access_key"
+evm_private_key = "evm_private_key"
+chain = "arbitrum-sepolia"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "database_name"
+database_id = "database_id"
+
+[dev]
+port = 4444

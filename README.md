@@ -1,21 +1,10 @@
-# Sequence Kit Embedded Wallet React Starter Boilerplate
+# Daily Rewards Server Boilerplate
 
-Starter Sequence Embedded Wallet boilerplate that uses [Sequence Kit](https://github.com/0xsequence/kit) with React.
-
-## Quickstart
-
-Copy `.env.example` to `.env` and fill with your project information. To test things out, you can use the pre-provided keys in the `.env.example` file:
-
-```
-cp .env.example .env
-```
-
-Then install and run:
-
-```js
-pnpm install && pnpm dev
-```
-
-The app will start on `localhost:4444`
-
-To provide your own keys from [Sequence Builder](https://sequence.build/), simply edit the `.env` file accordingly.
+## Rough Guide:
+- Create the token contracts on `Sequence's Builder`
+- Define your rewards inside `dailyRewards.ts`
+- Duplicate `example.wrangler.toml` and name it `wrangler.toml`
+- Create DB: `pnpm wrangler d1 create <NAME>`
+- Put `uuid` and `name` inside `wrangler.toml` from: `pnpm wrangler d1 list`
+- Deploy updates: `pnpm wrangler pages deploy`
+- Put the API url inside the Daily Rewards prefab in Unity
