@@ -4,6 +4,7 @@ compatibility_date = "2024-09-23"
 pages_build_output_dir = "./dist"
 
 [vars]
+project_id = "project_id"
 project_access_key = "project_access_key"
 evm_private_key = "evm_private_key"
 chain = "arbitrum-sepolia"
