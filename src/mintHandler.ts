@@ -12,6 +12,7 @@ export class MintHandler {
         this.env = env;
     }
 
+    // Use Sequence's Transaction Batching to give players multiple rewards at once
     async mintToUser(walletAddress: string, rewards: RewardData[]): Promise<void> {
         try {
             if (rewards.length === 0) {

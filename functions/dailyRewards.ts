@@ -5,12 +5,12 @@ import {UserDb} from "../src/userDb";
 import {RewardData} from "../src/rewardModel";
 import {getResponse} from "../src/networkUtils";
 
-const rewardsConfig: RewardData[][] = [
-    [{type: 'ERC1155', contractAddress: '0xd2926e2ee243e8df781ab907b48f77ec5d7a8be1', tokenId: 3, amount: 1}],
-    [{type: 'ERC1155', contractAddress: '0xd2926e2ee243e8df781ab907b48f77ec5d7a8be1', tokenId: 3, amount: 5}],
-    [{type: 'ERC1155', contractAddress: '0xd2926e2ee243e8df781ab907b48f77ec5d7a8be1', tokenId: 1, amount: 1}],
-    [{type: 'ERC1155', contractAddress: '0xd2926e2ee243e8df781ab907b48f77ec5d7a8be1', tokenId: 4, amount: 1}],
-    [{type: 'ERC1155', contractAddress: '0xd2926e2ee243e8df781ab907b48f77ec5d7a8be1', tokenId: 2, amount: 1}],
+const rewardsConfig: RewardData[] = [
+    {type: 'ERC1155', contractAddress: '0xd2926e2ee243e8df781ab907b48f77ec5d7a8be1', tokenId: 3, amount: 1},
+    {type: 'ERC1155', contractAddress: '0xd2926e2ee243e8df781ab907b48f77ec5d7a8be1', tokenId: 3, amount: 5},
+    {type: 'ERC1155', contractAddress: '0xd2926e2ee243e8df781ab907b48f77ec5d7a8be1', tokenId: 1, amount: 1},
+    {type: 'ERC1155', contractAddress: '0xd2926e2ee243e8df781ab907b48f77ec5d7a8be1', tokenId: 4, amount: 1},
+    {type: 'ERC1155', contractAddress: '0xd2926e2ee243e8df781ab907b48f77ec5d7a8be1', tokenId: 2, amount: 1},
 ]
 
 const timeSpan = 15;
@@ -42,9 +42,9 @@ export const onRequest: PagesFunction<Env> = async (context) => {
                     throw new Error('Cannot claim reward yet.');
                 }
 
-                const rewards = rewardsConfig[postUserStatus.progress];
+                const reward = rewardsConfig[postUserStatus.progress];
                 const minter = new MintHandler(context.env);
-                await minter.mintToUser(postWalletAddress, rewards);
+                await minter.mintToUser(postWalletAddress, [reward]);
 
                 let newProgress = postUserStatus.progress + 1;
                 if (newProgress >= rewardsConfig.length) {
